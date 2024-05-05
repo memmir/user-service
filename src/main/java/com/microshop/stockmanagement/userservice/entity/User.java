@@ -40,17 +40,17 @@ public class User {
     private String userAddress;
 
     @Builder.Default // bu alanı constructor da default olarak her zaman parametre olarak geçmesini sağlayan annottasyon.
-    @Column(name = "product_updated_date")
+    @Column(name = "user_updated_date")
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date productUpdatedDate = new Date();
+    private Date userUpdatedDate = new Date();
 
 
     @Builder.Default
-    @Column(name = "product_created_date")
+    @Column(name = "user_created_date")
     @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date productCreatedDate = new Date();
+    private Date userCreatedDate = new Date();
 
     @Column(name = "is_deleted") // Bu kolon veritabanında soft delete yapmamızı sağlıyor. True ya çektiğimizde silinmiş gibi olacak
     private boolean deleted;
