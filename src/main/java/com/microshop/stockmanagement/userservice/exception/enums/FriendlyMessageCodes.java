@@ -1,6 +1,6 @@
 package com.microshop.stockmanagement.userservice.exception.enums;
 
-public enum FriendlyMessageCodes implements IFriendlyMessageCode{
+public enum FriendlyMessageCodes implements IFriendlyMessageCode {
     OK(1000),
     ERROR(1001),
     SUCCES(1002),
