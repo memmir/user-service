@@ -16,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-//@Table todo vt ismi yazılacak.
+@Table(name = "user", schema = "user_management")
 public class User {
 
     @Id

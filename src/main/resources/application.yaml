@@ -31,7 +31,10 @@ spring:
     properties:
       hibernate:
         default_schema: ##### todo buraya microservice olması için ne koyulması gerektiği araştırılacak.
-
+  datasource:
+    url: "jdbc:postgresql://localhost:5435/user"
+    username: postgres
+    password: postgres
 
 
 eureka:
