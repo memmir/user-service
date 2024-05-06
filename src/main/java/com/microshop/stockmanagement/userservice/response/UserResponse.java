@@ -14,7 +14,6 @@ public class UserResponse {
     private String userName;
     private String userSurname;
     private String userEmail;
-    //private String userPassord; todo password response olarak dönülmeli mi?
     private Long userCreatedDate;
     private Long userUpdatedDate;
 }
