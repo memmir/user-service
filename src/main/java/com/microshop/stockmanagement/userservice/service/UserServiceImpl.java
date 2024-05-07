@@ -75,7 +75,19 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User updateUser(Language language, Long userId, UserUpdateRequest userUpdateRequest) {
-        return null;
+        log.debug("[{}][getUpdateUser] -> request: {}", this.getClass().getSimpleName(), userId, userUpdateRequest);
+
+       User user = getUser(language,userId);
+
+       user.setUserAddress(userUpdateRequest.getUserAddress());
+       user.setUserEmail(userUpdateRequest.getUserEmail());
+       user.setUserPassword(userUpdateRequest.getUserPassword());
+       user.setUserPhoneNumber(user.getUserPhoneNumber());
+       user.setUserUpdatedDate(new Date());
+
+       User userResponse = userRepository.save(user);
+       return user;
+
     }
 
     @Override
