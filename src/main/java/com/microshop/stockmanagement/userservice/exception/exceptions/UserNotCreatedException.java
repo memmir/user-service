@@ -19,7 +19,7 @@ public class UserNotCreatedException extends RuntimeException {
         super(FriendlyMessageUtils.getFriendlyMessage(language, friendlyMessageCode));
         this.language = language;
         this.friendlyMessageCode = friendlyMessageCode;
-        log.error("[ProductNotCreatedException] -> message: {} developer message: {} ", FriendlyMessageUtils.getFriendlyMessage(language,friendlyMessageCode),message);
+        log.error("[UserNotCreatedException] -> message: {} developer message: {} ", FriendlyMessageUtils.getFriendlyMessage(language,friendlyMessageCode),message);
     }
 
 
