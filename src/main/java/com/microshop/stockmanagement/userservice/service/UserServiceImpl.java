@@ -5,6 +5,7 @@ import com.microshop.stockmanagement.userservice.entity.User;
 import com.microshop.stockmanagement.userservice.enums.Language;
 import com.microshop.stockmanagement.userservice.exception.enums.FriendlyMessageCodes;
 import com.microshop.stockmanagement.userservice.exception.exceptions.UserNotCreatedException;
+import com.microshop.stockmanagement.userservice.exception.exceptions.UserNotFoundException;
 import com.microshop.stockmanagement.userservice.repository.UserRepository;
 import com.microshop.stockmanagement.userservice.request.UserCreateRequest;
 import com.microshop.stockmanagement.userservice.request.UserUpdateRequest;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Service
@@ -42,18 +44,33 @@ public class UserServiceImpl implements IUserService {
             return userResponse;
         }
         catch(Exception e){
-            throw new UserNotCreatedException(language, FriendlyMessageCodes.PRODUCT_NOT_CREATED_EXCEPTION, "product request " + userCreateRequest.toString());
+            throw new UserNotCreatedException(language, FriendlyMessageCodes.USER_NOT_CREATED_EXCEPTION, "user request " + userCreateRequest.toString());
         }
     }
 
     @Override
     public User getUser(Language language, Long userId) {
-        return null;
+        log.debug("[{}][getUser] -> request: {}", this.getClass().getSimpleName(), userId);
+        User user = userRepository.getByUserIdAndDeletedFalse(userId);
+        if(Objects.isNull(user)){
+            throw new UserNotFoundException(language, FriendlyMessageCodes.USER_NOT_FOUND_EXCEPTION, "User not found for user id: "+ userId);
+        }
+        log.debug("[{}][getUser] -> response: {}",this.getClass().getSimpleName(),userId);
+
+        return user;
     }
 
     @Override
     public List<User> getUsers(Language language) {
-        return null;
+        log.debug("[{}][getUsers] -> request: {}",this.getClass().getSimpleName());
+
+        List<User> userList = userRepository.getAllByDeletedFalse();
+
+        if(userList.isEmpty()){
+            throw new UserNotFoundException(language, FriendlyMessageCodes.USER_NOT_FOUND_EXCEPTION, "Users not found");
+        }
+        log.debug("[{}][getUsers] -> response: {}",this.getClass().getSimpleName(), userList);
+        return userList;
     }
 
     @Override
