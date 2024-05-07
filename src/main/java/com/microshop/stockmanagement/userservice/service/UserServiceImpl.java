@@ -75,7 +75,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User updateUser(Language language, Long userId, UserUpdateRequest userUpdateRequest) {
-        log.debug("[{}][getUpdateUser] -> request: {}", this.getClass().getSimpleName(), userId, userUpdateRequest);
+        log.debug("[{}][updateUser] -> request: {}", this.getClass().getSimpleName(), userId, userUpdateRequest);
 
        User user = getUser(language,userId);
 
@@ -86,6 +86,9 @@ public class UserServiceImpl implements IUserService {
        user.setUserUpdatedDate(new Date());
 
        User userResponse = userRepository.save(user);
+
+       log.debug("[{}][updateUser] -> response: {}", this.getClass().getSimpleName(), userResponse);
+
        return user;
 
     }
