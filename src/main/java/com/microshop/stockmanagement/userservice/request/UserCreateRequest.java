@@ -7,6 +7,7 @@ public class UserCreateRequest {
     private String userName;
     private String userSurname;
     private String userEmail;
+    private String userPhoneNumber;
     private String userPassword;
     private String userAddress;
 

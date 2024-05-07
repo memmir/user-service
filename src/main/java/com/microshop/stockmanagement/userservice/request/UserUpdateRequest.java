@@ -1,11 +1,13 @@
 package com.microshop.stockmanagement.userservice.request;
 
+import lombok.Data;
+
+@Data
 public class UserUpdateRequest {
 
-    private Long userId;
-    private String userName;
-    private String userSurname;
+
     private String userEmail;
     private String userPassword;
     private String userAddress;
+    private String userPhoneNumber;
 }

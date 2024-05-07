@@ -14,6 +14,7 @@ public class UserResponse {
     private String userName;
     private String userSurname;
     private String userEmail;
+    private String userPhoneNumber;
     private Long userCreatedDate;
     private Long userUpdatedDate;
 }

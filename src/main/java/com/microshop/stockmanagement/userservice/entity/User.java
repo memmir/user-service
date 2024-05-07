@@ -30,6 +30,9 @@ public class User {
     @Column(name = "user_surname")
     private String userSurname;
 
+    @Column(name="user_phoneNumber")
+    private String userPhoneNumber;
+
     @Column(name = "user_email")
     private String userEmail;
 
