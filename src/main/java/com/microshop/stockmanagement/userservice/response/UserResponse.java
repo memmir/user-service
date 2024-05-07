@@ -13,7 +13,9 @@ public class UserResponse {
     private long userId;
     private String userName;
     private String userSurname;
+    private String userPassword;
     private String userEmail;
+    private String userAddress;
     private String userPhoneNumber;
     private Long userCreatedDate;
     private Long userUpdatedDate;

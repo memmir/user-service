@@ -35,6 +35,7 @@ public class UserServiceImpl implements IUserService {
                     .userSurname(userCreateRequest.getUserSurname())
                     .userAddress(userCreateRequest.getUserAddress())
                     .userEmail(userCreateRequest.getUserEmail())
+                    .userPhoneNumber(userCreateRequest.getUserPhoneNumber())
                     .userPassword(userCreateRequest.getUserPassword())
                     .userCreatedDate(new Date())
                     .userUpdatedDate(new Date())
