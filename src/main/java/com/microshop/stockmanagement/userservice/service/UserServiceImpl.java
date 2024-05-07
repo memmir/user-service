@@ -4,6 +4,7 @@ package com.microshop.stockmanagement.userservice.service;
 import com.microshop.stockmanagement.userservice.entity.User;
 import com.microshop.stockmanagement.userservice.enums.Language;
 import com.microshop.stockmanagement.userservice.exception.enums.FriendlyMessageCodes;
+import com.microshop.stockmanagement.userservice.exception.exceptions.UserAlreadyDeletedException;
 import com.microshop.stockmanagement.userservice.exception.exceptions.UserNotCreatedException;
 import com.microshop.stockmanagement.userservice.exception.exceptions.UserNotFoundException;
 import com.microshop.stockmanagement.userservice.repository.UserRepository;
@@ -95,6 +96,22 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public User deleteUser(Language language, Long userId) {
-        return null;
+        log.debug("[{}][deleteUser] -> request: {}", this.getClass().getSimpleName(), userId);
+
+        User user;
+
+        try {
+            user = getUser(language, userId);
+            user.setDeleted(true);
+            user.setUserUpdatedDate(new Date());
+            User userResponse = userRepository.save(user);
+
+            log.debug("[{}][deleteUser] -> response: {}", this.getClass().getSimpleName(), userResponse);
+
+            return userResponse;
+
+        }catch (UserNotFoundException userNotFoundException){
+            throw new UserAlreadyDeletedException(language, FriendlyMessageCodes.USER_ALREADY_DELETED,"User already deleted product id: " + userId);
+        }
     }
 }
