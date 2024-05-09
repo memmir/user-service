@@ -112,7 +112,7 @@ public class UserServiceImpl implements IUserService {
             return userResponse;
 
         }catch (UserNotFoundException userNotFoundException){
-            throw new UserAlreadyDeletedException(language, FriendlyMessageCodes.USER_ALREADY_DELETED,"User already deleted product id: " + userId);
+            throw new UserAlreadyDeletedException(language, FriendlyMessageCodes.USER_ALREADY_DELETED,"User already deleted user id: " + userId);
         }
     }
 }
