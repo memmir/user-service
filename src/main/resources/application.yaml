@@ -30,7 +30,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
-        default_schema: ##### todo buraya microservice olması için ne koyulması gerektiği araştırılacak.
+        default_schema: stock_management
   datasource:
     url: "jdbc:postgresql://localhost:5435/user"
     username: postgres
