@@ -12,8 +12,10 @@ server:
   port: 9789
 logging:
   level:
-    root: debug
+    ##root: debug
     ##root: off
+    com.microshop: debug
+    ##üstteki şekilde diyerek daha az ve daha az karışık log görebiliriz.
     ##com.eleiatech:debug ## bu şekilde diyerek daha az ve daha az karışık log görebiliriz.
 
 ---
