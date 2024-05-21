@@ -150,6 +150,7 @@ public class UserController {
     //Setleme işlemini birden fazla kez yapacağımız için setleme işlemlerinin gerçekleştiği bir methoda dönüştürüyoruz.
     private UserResponse convertUserResponse(User user) {
         return  UserResponse.builder()
+                .userId(user.getUserId())
                 .userName(user.getUserName())
                 .userSurname(user.getUserSurname())
                 .userAddress(user.getUserAddress())
