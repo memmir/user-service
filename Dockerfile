@@ -8,3 +8,14 @@ WORKDIR /opt/app
 COPY ${JAR_FILE} app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
+
+
+#'mvn clean install' ile jar dosyalarını oluşturuyoruz.
+#Bu komut docker deamon tarafından bir image oluşturulmasını sağlıyor:
+#docker build -t user-service:0.0.1 .
+# -t  ---> tagini belirrtiğimiz anlamına geliyor.
+# 0.0.1 ---> verdiğimiz versiyon
+# En sondaki nokta ise dizini belirtiyoruzç
+
+
+#docker-compose -p stock-management -f user-service.yml up -d
